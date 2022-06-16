@@ -17,6 +17,14 @@ FSRs are basically a resistor that changes its resistive value (in ohms Ω) depe
 
 ![image](https://user-images.githubusercontent.com/36288975/163532939-d6888ae1-4068-4d83-86a7-fc4c32d5179e.png)
 
+### FIGURE 01 GRAPH OF FORCE vs RESISTANCE **
+
+
+
+
+![image](https://user-images.githubusercontent.com/36288975/163532957-82d57567-a1c3-48c5-8a87-7ea66d6fca49.png)
+
+
 
 
 ### FIGURE 02 FORCE SENSITIVE RESITOR FOIL DISC TYPE  
@@ -26,6 +34,26 @@ FSRs are often a polymer with conductive material silk-screened on. That means t
 The easiest way to measure a resistive sensor is to connect one end to power and the other to a pull-down resistor to ground. Then the point between the fixed pull down resistor and the variable FSR resistor is connected to the analog input of a microcontroller such as an Arduino The way this works is that as the resistance of the FSR decreases, the total resistance of the FSR and the pull down resistor decreases from about 100Kohm to 10Kohm. That means that the current flowing through both resistors increases which in turn causes the voltage across the fixed 10K resistor to increase.
 
  ![image](https://user-images.githubusercontent.com/36288975/163532972-2b909551-12c9-485d-adb1-d1e988d557bd.png)
+ 
+ ### TABLE -01 FORCE AND OUTPUT VOLTAGES**
+	
+  Table -01 indicates the approximate analog voltage based on the sensor force/resistance w/a 5V supply and 10K pull down resistor.
+
+### Vo = Vcc ( R / (R + FSR) )								Eq-01
+
+**Where R= 1KΩ in this experiment 
+**That is, the voltage is proportional to the inverse of the FSR resistance.
+
+
+
+
+
+
+
+
+
+
+![image](https://user-images.githubusercontent.com/36288975/163532979-a2a5cb5c-f495-442c-843e-bebb82737a35.png)
 
 
 
