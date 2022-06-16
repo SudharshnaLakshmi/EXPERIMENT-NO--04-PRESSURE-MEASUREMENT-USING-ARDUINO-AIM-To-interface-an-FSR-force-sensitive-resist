@@ -1,10 +1,9 @@
 # EXPERIMENT-NO--04-PRESSURE-MEASUREMENT-USING-ARDUINO-AIM-To-interface-an-FSR-force-sensitive-resistor
 
-
 ## AIM: 
-To interface an FSR(force sensitive resistor) and scale the output voltage obtained to pressure applied 
+To interface an FSR(force sensitive resistor) and measure the force applied,indicate the change in force applied using LEDs.
  
-### COMPONENTS REQUIRED:
+## COMPONENTS REQUIRED:
 1.	FSR  (force sensitive resistor)
 2.	1 KΩ resistor 
 3.	Arduino Uno 
@@ -12,19 +11,11 @@ To interface an FSR(force sensitive resistor) and scale the output voltage obtai
 5.	Connecting wires 
 
 
-### THEORY: 
+## THEORY: 
 FSRs are basically a resistor that changes its resistive value (in ohms Ω) depending on how much it is pressed. These sensors are fairly low cost, and easy to use. They also vary some from sensor to sensor perhaps 10%. FSR's resistance changes as more pressure is applied. When there is no pressure, the sensor looks like an infinite resistor (open circuit), as the pressure increases, the resistance goes down. This graph indicates approximately the resistance of the sensor at different force measurements.
  
 
 ![image](https://user-images.githubusercontent.com/36288975/163532939-d6888ae1-4068-4d83-86a7-fc4c32d5179e.png)
-
-### FIGURE 01 GRAPH OF FORCE vs RESISTANCE **
-
-
-
-
-![image](https://user-images.githubusercontent.com/36288975/163532957-82d57567-a1c3-48c5-8a87-7ea66d6fca49.png)
-
 
 
 
@@ -36,33 +27,13 @@ The easiest way to measure a resistive sensor is to connect one end to power and
 
  ![image](https://user-images.githubusercontent.com/36288975/163532972-2b909551-12c9-485d-adb1-d1e988d557bd.png)
 
-### TABLE -01 FORCE AND OUTPUT VOLTAGES**
-	
-  Table -01 indicates the approximate analog voltage based on the sensor force/resistance w/a 5V supply and 10K pull down resistor.
 
-### Vo = Vcc ( R / (R + FSR) )								Eq-01
 
-****Where R= 1KΩ in this experiment 
-****That is, the voltage is proportional to the inverse of the FSR resistance.
+## FIGURE-03 CIRCUIT DIAGRAM
 
 
 
-
-
-
-
-
-
-
-![image](https://user-images.githubusercontent.com/36288975/163532979-a2a5cb5c-f495-442c-843e-bebb82737a35.png)
-
-
-
-### FIGURE-03 CIRCUIT DIAGRAM
-
-
-
-### PROCEDURE:
+## PROCEDURE:
 1.	Connect the circuit as per the circuit diagram 
 2.	Connect the board to your computer via the USB cable.
 3.	If needed, install the drivers.
@@ -75,44 +46,77 @@ The easiest way to measure a resistive sensor is to connect one end to power and
 10.	Plot the graph for the output voltage vs the resistance 
 
 
-### PROGRAM 
+## PROGRAM 
  
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
+```
 
-![image](https://user-images.githubusercontent.com/36288975/163533136-5f8d00f2-8456-4d46-b243-d94d45f83eee.png)
+// C++ code
+// Define pins:
+#define fsrpin A0
+#define led1 2
+#define led2 3
+#define led3 4
+#define led4 5
+#define led5 6
+#define led6 7
 
-### TABLE -02 OUTPUT VOLTAGES AND CHANGE IN RESISTANCES
+//Define variables:
+int fsrreading;
+void setup()
+{
+  Serial.begin(9600);
+  
+//Set LED pins as output
+ pinMode(led1, OUTPUT);
+ pinMode(led2, OUTPUT);
+ pinMode(led3, OUTPUT);
+ pinMode(led4, OUTPUT);
+ pinMode(led5, OUTPUT);
+ pinMode(led6, OUTPUT);
+}
+void loop()
+{
+  fsrreading = analogRead(fsrpin);
+  Serial.println(fsrreading);
+  
+  if(fsrreading>150)
+  {
+    digitalWrite(led1, HIGH);
+  }
+  else digitalWrite(led1,LOW);
+  if(fsrreading>300)
+  {
+    digitalWrite(led2, HIGH);
+  }
+  else digitalWrite(led2,LOW);
+  if(fsrreading>450)
+  {
+    digitalWrite(led3, HIGH);
+  }
+  else digitalWrite(led3,LOW);
+  if(fsrreading>600)
+  {
+    digitalWrite(led4, HIGH);
+  }
+  else digitalWrite(led4,LOW);
+  if(fsrreading>750)
+  {
+    digitalWrite(led5, HIGH);
+  }
+   else digitalWrite(led5,LOW);
+  if(fsrreading>900)
+  {
+    digitalWrite(led6, HIGH);
+  }
+   else digitalWrite(led6,LOW);
+}
 
+```
 
+## OUTPUT
 
+![OUTPUT](out1.png)
+![OUTPUT](out2.png)
 
-
-
-
-
-
-
-
-
-
-
-
-### RESULTS : Arduino uno is interfaced with FSR and output values are indicated on a graph.
+ ## RESULT : 
+Thus the interface an FSR(force sensitive resistor) is simulated int tinkerCAD.
